@@ -1,12 +1,6 @@
 .container {
   width: 100%;
   display: flex;
-
-}
-
-@media (max-width: 576px) {
-  .container {
-    justify-content: center;
-    align-items: center;
-  }
+  justify-content: center;
+  align-items: center;
 }
