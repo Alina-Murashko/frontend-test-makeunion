@@ -1,6 +1,8 @@
-export function getUser (obj) {
+import {User} from "../../app/users/users.reducer.ts";
+
+export function getUser (obj: Partial<User>) {
     let objectUser = {}
-    function makeObj(obj) {
+    function makeObj(obj :any ) {
         if (Object.keys(obj).length === 0) {
             return objectUser
         }
@@ -19,6 +21,6 @@ export function getUser (obj) {
     return objectUser
 }
 
-export function capitalizeFirstLetter(string) {
+export function capitalizeFirstLetter(string: string) {
     return string[0].toUpperCase() + string.substring(1);
 }

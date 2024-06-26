@@ -4,7 +4,7 @@ import { usersAPI } from "../api/api.ts";
 import { AppThunk } from "../store.ts";
 
 const initialState  = {
-    users: [] as User[],
+    users: [] as UserResponse[],
     user: {} as User,
 }
 

@@ -1,7 +1,6 @@
 import {createSlice, PayloadAction} from "@reduxjs/toolkit";
-import {Task} from "../../common/components/task/Task.tsx";
 
-const initialState: Task[] = [];
+const initialState: TaskType[] = [];
 
 const slice = createSlice({
     name: "tasks",
@@ -14,7 +13,7 @@ const slice = createSlice({
             }
             console.log(`error ${index} ${action.payload.taskId}`)
         },
-        addTask: (state, action: PayloadAction<{ task: Task }>) => {
+        addTask: (state, action: PayloadAction<{ task: TaskType }>) => {
            state.unshift(action.payload.task);
         },
         updateStatus: (state, action: PayloadAction<{ taskId: string}>) => {
@@ -39,7 +38,7 @@ const slice = createSlice({
 export const tasksReducer = slice.reducer;
 export const tasksActions = slice.actions;
 
-export type Task = {
+export type TaskType = {
     title: string;
     status: boolean;
     taskId: string

@@ -1,11 +1,11 @@
 import React from "react";
 import {Button} from "../button/Button.tsx";
 import s from './task.module.scss'
-import {Task} from "../../../app/task/task.reducer.ts";
 import {EditableSpan} from "../editableTitle/EditableTitle.tsx";
+import { TaskType } from "../../../app/task/task.reducer.ts";
 
 type TaskProps = {
-    task: Task
+    task: TaskType
     changeTaskStatus: (taskId: string) => void
     removeTask: (taskId: string) => void
     updateTitle: (taskId: string, newTitle: string) => void

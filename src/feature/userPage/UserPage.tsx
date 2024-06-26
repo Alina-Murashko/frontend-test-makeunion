@@ -12,6 +12,11 @@ import {Card} from "../../common/components/card/Card.tsx";
 import {capitalizeFirstLetter, getUser} from "../../common/utils/utils.ts";
 import {Loader} from "../../common/components/loader/Loader.tsx";
 import { v4 } from 'uuid'
+
+type UserInformation = {
+    [key: string]: string | number;
+
+}
 export const UserPage = () => {
     const dispatch = useAppDispatch()
     const status = useSelector((state: AppRootStateType) => state.app.status)
@@ -31,7 +36,7 @@ export const UserPage = () => {
         return <Loader/>
     }
 
-    const UserInformation = getUser(user)
+    const UserInformation: UserInformation = getUser(user)
 
         return (
         <section className={s.container}>

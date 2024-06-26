@@ -5,7 +5,7 @@ import {Input} from "../../common/components/input/Input.tsx";
 import {Task} from "../../common/components/task/Task.tsx";
 import {ChangeEvent, KeyboardEvent, useState} from "react";
 import {useAppDispatch} from "../../common/hooks/useAppDispatch.ts";
-import {tasksActions} from "../../app/task/task.reducer.ts";
+import {tasksActions, TaskType} from "../../app/task/task.reducer.ts";
 import { v4 } from 'uuid'
 import {useSelector} from "react-redux";
 import {AppRootStateType} from "../../app/store.ts";
@@ -18,7 +18,7 @@ export const Todolist = () => {
     const addItemHandler = () => {
         if (title.trim() !== "") {
             const taskId = v4().toString()
-            const newTask: Task = {
+            const newTask: TaskType = {
                 title: title,
                 status: false,
                 taskId: taskId,
