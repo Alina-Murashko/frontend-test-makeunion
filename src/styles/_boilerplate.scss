@@ -1,0 +1,56 @@
+html {
+  box-sizing: border-box;
+  font-size: 100%;
+
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+input,
+button,
+select,
+textarea,
+optgroup,
+option {
+  font-family: inherit;
+  font-size: inherit;
+  font-weight: inherit;
+  font-style: inherit;
+  color: inherit;
+}
+a {
+  color: var(--color-dark);
+}
+a:visited {
+  color: var(--color-green-visited);
+}
+a:active {
+  color: var(--color-white);
+}
+
+body {
+  margin: 0;
+  font-size:calc((100vw - 360px)/(1440 - 360) * (15 - 8) + 8px);
+  min-width: 100%;
+  min-height: 100vh;
+  font-family: var(--font-family-primary), sans-serif;
+  color: var(--color-dark);
+  background: linear-gradient(180deg, var(--color-green) 0%, var(--color-green-dark) 50%, var(--color-border-card) 100%);
+
+}
+
+p {
+  font-size: calc((100vw - 360px)/(1440 - 360) * (20 - 10) + 10px);
+}
+
+button {
+  cursor: pointer;
+  background-color: unset;
+  border: none;
+}
