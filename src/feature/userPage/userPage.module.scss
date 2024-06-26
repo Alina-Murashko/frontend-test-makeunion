@@ -17,10 +17,10 @@ ul {
   flex-direction: column;
   justify-content: center;
   gap: 20px
-
 }
+
 .userUl {
-  padding: 30px;
+  padding: 20px;
   & table {
     border-collapse: collapse;
   }
@@ -28,7 +28,7 @@ ul {
     border-bottom: 1px solid var(--color-dark);
     color: var(--color-dark);
     padding: 5px;
-    max-width: 450px;
+    max-width: 500px;
     word-break: break-all;
   }
    & th {
@@ -44,14 +44,24 @@ ul {
 }
 
 @media (max-width: 1200px) {
+  .user {
+    padding: 20px;
+  }
   .container {
     flex-wrap: wrap;
   }
 }
 
-@media (max-width: 400px) {
+@media (max-width: 576px) {
   .user {
     flex-direction: column;
     align-items: center;
+    gap: 10px;
+  }
+  .content {
+    flex-direction: row;
+    align-items: center;
   }
 }
+
+

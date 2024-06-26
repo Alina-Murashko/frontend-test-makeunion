@@ -19,6 +19,7 @@ header {
   justify-content: center;
   text-decoration: none;
   font-weight: bold;
+  font-size:calc((100vw - 360px)/(1440 - 360) * (18 - 10) + 10px);
   position: relative;
   z-index: 99;
   width: 200px;
@@ -72,10 +73,11 @@ header {
 
 @media (max-width: 400px) {
   .link {
-    width: 80px;
+    width: 90px;
     height: 20px;
     &::before {
-      width: 80px;
+      width: 90px;
+
     }
   }
 }
