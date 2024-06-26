@@ -5,6 +5,7 @@ import {Layout} from "./feature/layout/Layout.tsx";
 import {ProfileUser} from "./feature/profileUser/ProfileUser.tsx";
 import {Todolist} from "./feature/todolist/Todolist.tsx";
 
+
 function App() {
 
     return (
@@ -13,7 +14,7 @@ function App() {
                   <Route element={<Layout />} path={'/'}>
                       <Route path="/users" element={<ListUsers />}/>
                       <Route path="/users/:id" element={<UserPage />} />
-                      <Route path="/profile" element={<ProfileUser />} />
+                      <Route index element={<ProfileUser />} />
                       <Route path="/todolist" element={<Todolist />} />
                   </Route>
               </Routes>

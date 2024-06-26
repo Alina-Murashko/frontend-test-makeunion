@@ -38,6 +38,7 @@ const usersGet =  (): AppThunk =>
         try {
             const res = await usersAPI.getUsers()
             const users = await res.json()
+
             dispatch(usersAction.setUsers({users}))
 
         } catch (error) {
@@ -58,14 +59,11 @@ const userComment =  (id: string): AppThunk =>
 
         } catch (error) {
             dispatch(appActions.setAppError({ error: error as string }))
-        } finally {
-            dispatch(appActions.setAppStatus({ status: 'succeeded' }))
         }
     };
 
 const user =  (id: string): AppThunk =>
     async (dispatch) => {
-        dispatch(appActions.setAppStatus({ status: "loading" }))
         try {
             const res = await usersAPI.getUser(id)
             const user = await res.json()
