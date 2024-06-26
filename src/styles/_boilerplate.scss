@@ -1,7 +1,6 @@
 html {
   box-sizing: border-box;
   font-size: 100%;
-
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
@@ -36,7 +35,7 @@ a:active {
 
 body {
   margin: 0;
-  font-size:calc((100vw - 360px)/(1440 - 360) * (15 - 8) + 8px);
+  font-size:calc((100vw - 360px)/(1440 - 360) * (14 - 12) + 12px);
   min-width: 100%;
   min-height: 100vh;
   font-family: var(--font-family-primary), sans-serif;
@@ -46,7 +45,7 @@ body {
 }
 
 p {
-  font-size: calc((100vw - 360px)/(1440 - 360) * (20 - 10) + 10px);
+  font-size: calc((100vw - 360px)/(1440 - 360) * (18 - 10) + 10px);
 }
 
 button {

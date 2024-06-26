@@ -6,13 +6,16 @@ export const Header = () => {
         <header>
             <ul>
                 <li >
-                    <NavLink className={({ isActive }) => (isActive ? `${s.link} ${s.active}`: s.link)} to={'/users'}> List Users </NavLink>
+                    <NavLink className={({ isActive }) =>
+                        (isActive ? `${s.link} ${s.active}`: s.link)} to={'/users'}> List Users </NavLink>
                 </li>
                 <li>
-                    <NavLink  className={({ isActive }) => (isActive ? `${s.link} ${s.active}`: s.link)} to={'/todolist'}>Todolist</NavLink>
+                    <NavLink  className={({ isActive }) =>
+                        (isActive ? `${s.link} ${s.active}`: s.link)} to={'/todolist'}>Todolist</NavLink>
                 </li>
                 <li>
-                    <NavLink  className={({ isActive }) => (isActive ? `${s.link} ${s.active}`: s.link)} to={'/profile'}> Profile User </NavLink>
+                    <NavLink  className={({ isActive }) =>
+                        (isActive ? `${s.link} ${s.active}`: s.link)} to={'/'}> Profile User </NavLink>
                 </li>
             </ul>
         </header>

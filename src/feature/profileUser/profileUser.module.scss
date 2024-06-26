@@ -1,6 +1,6 @@
 .container {
   width: 100%;
-  margin: 100px 0;
+  margin: 40px 0;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -20,9 +20,18 @@
   gap: 20px
 }
 
-@media (max-width: 400px) {
+@media (max-width: 576px) {
   .user {
+    width: 100%;
     flex-direction: column;
     align-items: center;
+  }
+  .content {
+    flex-direction: row;
+    align-items: center;
+
+  }
+  .user {
+    gap: 5px;
   }
 }

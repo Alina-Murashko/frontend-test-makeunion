@@ -38,3 +38,13 @@
     max-width: 300px;
   }
 }
+
+@media (max-width: 576px) {
+  .information {
+    max-width: 100%;
+    gap: 15px;
+  }
+  .linkContainer {
+    gap: 10px;
+  }
+}

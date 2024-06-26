@@ -11,7 +11,7 @@ type PropsListOfUsers = {
 export const ListOfUsers = ({users}: PropsListOfUsers ) => {
     return (
         <div>
-            <h2>List of debtors</h2>
+            <h2 className={s.title}>List of debtors</h2>
             <ul className={s.list}>
                 {users?.map(user => {
                     return (

@@ -1,5 +1,6 @@
-h2 {
+.title {
   margin: 0;
+  font-size:calc((100vw - 360px)/(1440 - 360) * (26 - 26) + 26px);
 }
 
 .list {
@@ -13,6 +14,7 @@ h2 {
     list-style-type: none;
     margin: 0;
     padding: 10px;
+    font-size:calc((100vw - 360px)/(1440 - 360) * (22 - 22) + 22px);
 
     & a {
       text-decoration: none;
