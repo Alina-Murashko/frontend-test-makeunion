@@ -1,0 +1,16 @@
+:root {
+  @font-face {
+    font-family: 'CircleRounded';
+    src:
+      url('../../../frontend-test-makeunion/src/assets/fonts/CirceRounded.eot') format('eot'),
+      url('../../../frontend-test-makeunion/src/assets/fonts/CirceRounded-Bold.eot') format('eot'),
+      url('../../../frontend-test-makeunion/src/assets/fonts/CirceRounded.woff') format('woff'),
+      url('../../../frontend-test-makeunion/src/assets/fonts/CirceRounded-Bold.woff') format('woff'),
+      url('../../../frontend-test-makeunion/src/assets/fonts/CirceRounded.woff2') format('woff2'),
+      url('../../../frontend-test-makeunion/src/assets/fonts/CirceRounded-Bold.woff2') format('woff2');
+    font-weight: normal;
+    font-style: normal;
+  }
+
+  --font-family-primary: 'CircleRounded', sans-serif;
+}

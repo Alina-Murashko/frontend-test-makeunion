@@ -1,0 +1,25 @@
+h2 {
+  margin: 0;
+}
+
+.list {
+  padding: 20px 0 20px;
+  & ul {
+    margin: 0;
+    padding: 0;
+  }
+  & li {
+    cursor: pointer;
+    list-style-type: none;
+    margin: 0;
+    padding: 10px;
+
+    & a {
+      text-decoration: none;
+      &:hover{
+        text-decoration: underline;
+      }
+    }
+
+  }
+}
