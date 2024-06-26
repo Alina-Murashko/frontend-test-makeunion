@@ -1,0 +1,21 @@
+.inputEditable {
+  width: 100%;
+  border-radius: 2px;
+  background-color: var(--color-border-card);
+  color: var(--color-dark);
+  padding: 2px;
+  border: 1px solid var(--color-dark);
+  &:focus-visible {
+    outline: 2px solid var(--color-green);
+  }
+}
+
+.title {
+  font-weight: bold;
+}
+
+.done {
+  text-decoration: line-through;
+  color: var(--color-dark);
+}
+

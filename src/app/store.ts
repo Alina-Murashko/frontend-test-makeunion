@@ -3,11 +3,13 @@ import { AnyAction, combineReducers } from 'redux'
 import { ThunkAction, ThunkDispatch } from 'redux-thunk'
 import { appReducer } from "./app.reducer.ts";
 import { usersReducer } from "./users/users.reducer.ts";
+import {tasksReducer} from "./task/task.reducer.ts";
 
 
 const rootReducer = combineReducers({
   app: appReducer,
   users: usersReducer,
+  tasks: tasksReducer,
 })
 
 export const store = configureStore({
