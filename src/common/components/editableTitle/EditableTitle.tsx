@@ -1,4 +1,4 @@
-import React, {ChangeEvent, ComponentPropsWithoutRef, useState} from "react";
+import {ChangeEvent, ComponentPropsWithoutRef, memo, useState} from "react";
 import s from './editableTitle.module.scss'
 
 type Props = {
@@ -7,27 +7,28 @@ type Props = {
     onChange: (newValue: string) => void
 }
 
-type EditableProps = Omit<ComponentPropsWithoutRef<'div'>, keyof Props> & Props
-export const EditableSpan = React.memo(function (props: EditableProps) {
-    const {onChange,value,status} = props
+type EditableProps = Omit<ComponentPropsWithoutRef<'input'>, keyof Props> & Props
+export const EditableSpan = memo(function (props: EditableProps) {
+    const {onChange,value,status, className, ...rest} = props
     const [editMode, setEditMode] = useState(false);
     const [title, setTitle] = useState(value);
 
-    const activateEditMode = () => {
-        setEditMode(true);
-        setTitle(value);
-    };
+    const activateEditMode =() => {
+        setEditMode(true)
+        setTitle(value)
+    }
     const activateViewMode = () => {
-        setEditMode(false);
-        onChange(title);
-    };
+        setEditMode(false)
+        onChange(title)
+    }
     const changeTitle = (e: ChangeEvent<HTMLInputElement>) => {
         setTitle(e.currentTarget.value);
-    };
+    }
     const titleStyle = status ? `${s.title} ${s.done}` : s.title
 
     return editMode ? (
-        <input className={s.inputEditable} value={title} onChange={changeTitle} autoFocus onBlur={activateViewMode} />
+        <input className={`${s.inputEditable} ${className}`} value={title} onChange={changeTitle}
+               autoFocus onBlur={activateViewMode} {...rest}/>
     ) : (
         <span onDoubleClick={activateEditMode} className={titleStyle}>{value}</span>
     );

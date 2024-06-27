@@ -3,7 +3,7 @@ import { Button } from "../../common/components/button/Button.tsx";
 import s from './todolist.module.scss'
 import {Input} from "../../common/components/input/Input.tsx";
 import {Task} from "../../common/components/task/Task.tsx";
-import {ChangeEvent, KeyboardEvent, useState} from "react";
+import {ChangeEvent, KeyboardEvent, useCallback, useState} from "react";
 import {useAppDispatch} from "../../common/hooks/useAppDispatch.ts";
 import {tasksActions, TaskType} from "../../app/task/task.reducer.ts";
 import { v4 } from 'uuid'
@@ -15,7 +15,8 @@ export const Todolist = () => {
     const tasks = useSelector((state: AppRootStateType) => state.tasks)
     const [title, setTitle] = useState('')
     const [error, setError] = useState<string | null>(null);
-    const addItemHandler = () => {
+
+    const addItemHandler = useCallback( ()=> {
         if (title.trim() !== "") {
             const taskId = v4().toString()
             const newTask: TaskType = {
@@ -29,30 +30,32 @@ export const Todolist = () => {
         } else {
             setError("Title is required");
         }
-    };
-    const onChangeHandler = (e: ChangeEvent<HTMLInputElement>) => {
+    },[dispatch,title]);
+
+    const onChangeHandler = useCallback((e: ChangeEvent<HTMLInputElement>) => {
         setTitle(e.currentTarget.value);
-    };
+    },[]);
 
-    const changeTaskStatusHandler = (taskId: string) => {
+    const changeTaskStatusHandler = useCallback((taskId: string) => {
         dispatch(tasksActions.updateStatus({taskId}))
-    }
-    const removeTaskHandler = (taskId: string) => {
+    },[dispatch])
+    const removeTaskHandler = useCallback((taskId: string) => {
         dispatch(tasksActions.removeTask({taskId}))
-    }
+    },[dispatch])
 
-    const onKeyPressHandler = (e: KeyboardEvent<HTMLInputElement>) => {
+    const onKeyPressHandler = useCallback((e: KeyboardEvent<HTMLInputElement>) => {
         if (error !== null) {
             setError(null);
         }
         if (e.charCode === 13) {
             addItemHandler();
         }
-    };
+    },[addItemHandler,error]);
 
-    const updateTitleHandler = (taskId: string, newTitle: string) => {
+    const updateTitleHandler = useCallback((taskId: string, newTitle: string) => {
         dispatch(tasksActions.updateTitle({taskId,newTitle}))
-    }
+    },[dispatch])
+
     return (
         <section className={s.container}>
             <Card className={s.card}>
@@ -72,8 +75,6 @@ export const Todolist = () => {
                                          updateTitle={updateTitleHandler}/>
                         })}
                     </div>}
-
-
             </Card>
         </section>
 

@@ -1,4 +1,4 @@
-import React from "react";
+import {ComponentPropsWithoutRef, memo, useCallback} from "react";
 import {Button} from "../button/Button.tsx";
 import s from './task.module.scss'
 import {EditableSpan} from "../editableTitle/EditableTitle.tsx";
@@ -9,24 +9,24 @@ type TaskProps = {
     changeTaskStatus: (taskId: string) => void
     removeTask: (taskId: string) => void
     updateTitle: (taskId: string, newTitle: string) => void
-};
-export const Task = React.memo((props: TaskProps) => {
-    const {task,changeTaskStatus,removeTask,updateTitle} = props
-    const changeTaskStatusHandler = () => {
+} & ComponentPropsWithoutRef<'div'>
+export const Task = memo((props: TaskProps) => {
+    const {task,changeTaskStatus,removeTask,updateTitle, className, ...rest} = props
+    const changeTaskStatusHandler = useCallback(() => {
         changeTaskStatus(task.taskId)
-    }
+    },[task, changeTaskStatus])
 
-    const removeTaskHandler = () => {
+    const removeTaskHandler = useCallback(() => {
         removeTask(task.taskId)
-    }
+    },[task,removeTask])
 
-    const updateTitleHandler = (newTitle: string) => {
+    const updateTitleHandler = useCallback((newTitle: string) => {
        updateTitle(task.taskId,newTitle)
-    }
+    },[task,updateTitle])
 
 
     return (
-        <div className={s.container}>
+        <div className={`${s.container} ${className}`} {...rest}>
             <input type="checkbox" checked={task.status}
                    onChange={changeTaskStatusHandler} />
             <EditableSpan status={task.status} value={task.title} onChange={updateTitleHandler} />
