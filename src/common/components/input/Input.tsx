@@ -1,4 +1,4 @@
-import {ComponentPropsWithoutRef} from "react";
+import {ComponentPropsWithoutRef, memo} from "react";
 import s from './input.module.scss'
 
 type Props = {
@@ -6,7 +6,7 @@ type Props = {
 }
 
 type InputProps = Omit<ComponentPropsWithoutRef<'input'>, keyof Props> & Props
-export const Input = ({className,error, ...props}: InputProps) => {
+export const Input = memo(({className,error, ...props}: InputProps) => {
 
     const inputStyle = error ? `${s.input} ${s.error} ${className}`: `${s.input} ${className}`
 
@@ -16,4 +16,4 @@ export const Input = ({className,error, ...props}: InputProps) => {
             {error && <span className={s.error}>{error}</span>}
         </div>
     )
-}
+})
